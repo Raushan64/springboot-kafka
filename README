@@ -1,0 +1,22 @@
+How to start zookeeper and kafka-broker
+1. Start Start Zookeeper
+> cd kafka_2.13-3.3.1/bin
+> ./zookeeper-server-start.sh ../config/zookeeper.properties
+
+2. Start Kafka Broker
+> cd kafka_2.13-3.3.1/bin
+> ./kafka-server-start.sh ../config/server.properties
+
+How to send string/json message from producer
+1. Send the string message to kafka-topic from producer
+url: GET http://localhost:8080/api/v1/kafka/publish?message="helloworld"
+2. Consumer will read/consume/subscribe this message from kafka-topic, see the message in Log-Colsole
+
+1. Send the json message to kafka-topic from producer
+url: POST http://localhost:8080/api/v1/kafka/publish
+payload: {
+            "id": 3,
+            "firstName": "Jon",
+            "lastName": "Cena"
+         }
+2. Consumer will read/consume/subscribe this message from kafka-topic, see the message in Log-Colsole
